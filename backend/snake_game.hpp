@@ -17,6 +17,9 @@ namespace board {
     class Board{
 
         private:    
+
+            int WIDTH = 80;
+            int HEIGHT = 20; 
             
             //Initialized snake head coordinates 
             int x,y;
@@ -34,22 +37,43 @@ namespace board {
             int SnakeTailX[100], SnakeTailY[100]; 
 
             //Used for recording snakes direction along the map
-            enum class SnakeDirection{
+            enum SnakeDirection{
                 STOP = 0, LEFT, RIGHT, UP, DOWN
-            } SnakeDir;
+            }; 
+
+            SnakeDirection sDir; 
 
             //Bool variable for checking game is over or not. 
-            bool isGameOver();  
+            bool isGameOver;  
 
         public: 
             
+            //the board constructor initializes all of the variables needed in order to start the game. 
             Board(){
+                //ensures the head of the snake starts in the center of the map. 
+                x = WIDTH/2;
+                y = HEIGHT/2;
+
+                //Setting the fruit to spawn in a random location
+                fruitCoordX = rand() % WIDTH;
+                fruitCoordY = rand() % HEIGHT; 
+
+                //initializing player score
+                playerscore = 0; 
+
+                //Setting tail length to 0
+                snakeTailLength = 0;
+
+                //setting default direction to stopped
+                sDir = STOP; 
+                
+                isGameOver = false; 
+    
 
             }
 
-
-            void GameStart();
-
+            //The game render function creates the game board and also renders the game.
+            // @param PlayerName will be used to keep track/ display the player name & their score
             void GameRender(std::string PlayerName); 
     };
 
