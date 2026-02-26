@@ -18,7 +18,10 @@ namespace board {
 
         private:    
 
-            int WIDTH = 80;
+        public: 
+
+
+            int WIDTH = 60;
             int HEIGHT = 20; 
             
             //Initialized snake head coordinates 
@@ -46,7 +49,6 @@ namespace board {
             //Bool variable for checking game is over or not. 
             bool isGameOver;  
 
-        public: 
             
             //the board constructor initializes all of the variables needed in order to start the game. 
             Board(){
@@ -68,7 +70,6 @@ namespace board {
                 sDir = STOP; 
                 
                 isGameOver = false; 
-    
 
             }
 
